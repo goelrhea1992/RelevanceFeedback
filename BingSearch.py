@@ -75,7 +75,7 @@ def getAllWords(topResults):
 		for i in range(10):
 			if docs[i].count(word) > 0:
 				allWords[word][0] += 1
-				allWords[word][1] = math.log(10/allWords[word][0])
+				allWords[word][1] = math.log(10./allWords[word][0])
 
 	#print allWords
 	print 'allWords.keys(): \t', allWords
@@ -181,7 +181,6 @@ if __name__ == "__main__":
 
 		formattedQuery = formatQuery(query)
 		topResults = getTopResults(formattedQuery, accountKey)
-
 		tf_Idf = getAllWords(topResults)
 
 		print "\ntf_Idf: " , tf_Idf
