@@ -8,7 +8,7 @@ import math
 topResults = {}
 allWords = {}
 docs = {key: list() for key in range(10)}
-query = ''
+#query = ''
 
 def formatQuery(query):
 	formattedQuery = "%27"
@@ -28,10 +28,15 @@ def getTopResults(formattedQuery, accountKey):
 	req = urllib2.Request(bingUrl, headers = headers)
 	response = urllib2.urlopen(req)
 	content = response.read()
-	topResults =  json.loads(content)
-	with open('data.txt','w') as outfile:
-		json.dump(topResults, outfile)
+	return json.loads(content)
+	#print topResults
+	#with open('data.txt','w') as outfile:
+	#	json.dump(topResults, outfile)
 	
+""" Gets all words from titles and descriptions
+	Computes termFrequency, inverse-document-frequency
+
+"""
 def getAllWords(topResults):
 	for i in range(0, 10):
 		desc = topResults['d']['results'][i]['Description']
@@ -63,7 +68,8 @@ def getAllWords(topResults):
 		if word:
 			if allWords.has_key(word)==0:
 				allWords[word] = [0,0]
-
+	
+	print 'allWords.keys(): \t', allWords
 	# put document frequencies and idf's in allWords dictionary
 	for word in allWords.keys():
 		for i in range(10):
@@ -72,7 +78,7 @@ def getAllWords(topResults):
 				allWords[word][1] = math.log(10/allWords[word][0])
 
 	#print allWords
-	print allWords.keys()
+	print 'allWords.keys(): \t', allWords
 
 	#print 'Documents: '
 	#print docs
@@ -81,7 +87,7 @@ def getAllWords(topResults):
 	#term frequency: number of occurences of every word in every document
 	termFreqs = [[docs[docKey].count(word) for word in allWords.keys()] for docKey in docs.keys()]
 	print '\ndocs[0]: ', docs[0]
-	print '\nzip(termFreqs[0],allWords.keys()): ', zip(termFreqs[0],allWords.keys())
+	#print '\nzip(termFreqs[0],allWords.keys()): ', zip(termFreqs[0],allWords.keys())
 	#print termFreqs
 	print '\nallWords: ', [allWords[word] for word in allWords]
 
@@ -101,10 +107,9 @@ def getAllWords(topResults):
 '''
 
 
+
 """ Computes and returns the queryVector
 
-
-Attributes:
 query: the query as a simple white-space-delimited string
 allWords: the word vector (expanded list of all words in the query and the documents)
 """
@@ -132,22 +137,33 @@ def sims(queryVector,docVectorWeights):
 		sims[i] = sim(queryVector,docVectorWeights[i])
 	return sims
 
+
+""" Computes the modified query from the relevant and non-relevant documents...
+	Based on Rocchio's algorithm
+"""
+def Rocchio(queryVector, Docs, alpha, beta, gamma):
+	modQueryVec = []
+	# ??
+	return modQueryVec
+
+
+
 def usage():
-	print """
+	print """modQueryVec
 	python BingSearch.py [accountKey] [precision] ['query']
 
 	"""
-
 
 if __name__ == "__main__":
 
 	if len(sys.argv)!=4: # Expect exactly three arguments: the account key, precision, and query string
 		usage()
-		#sys.exit(2)
+		sys.exit(2)
 
 		#was having some problems with my wifi at one point so I ran from a data.txt file rather 
 		# running the bing query every time...
 		# obviously it won't work later on when we add the relevance feedback
+		'''
 		data = open('data.txt','r')
 		topResults = json.load(data)
 		data.close()
@@ -157,22 +173,39 @@ if __name__ == "__main__":
 		queryVector = getQueryVector(query, allWords)
 		#docVectors = getDocVectors(docs, allWords)
 		print "\nsims: " , sims(queryVector,tf_Idf)
-		
+		'''
 	else:
 		accountKey = sys.argv[1]
 		precision = float(sys.argv[2])
-		query = sys.argv[3]
+		query = sys.argv[3] # what about multiple word queries?
 
-		query = formatQuery(query)
-		getTopResults(query, accountKey)
-		getAllWords(topResults)
+		formattedQuery = formatQuery(query)
+		topResults = getTopResults(formattedQuery, accountKey)
 
+		tf_Idf = getAllWords(topResults)
 
+		print "\ntf_Idf: " , tf_Idf
+		queryVector = getQueryVector(query, allWords)
+		print "\nsims: " , sims(queryVector,tf_Idf)
+		
+		#loop over topResults, get feedback
+		relevance = [0]*10
+		for i in range(10):
+			print '\n Result: ' + topResults['d']['results'][i]['Title']
+			print '\t' + topResults['d']['results'][i]['Description']
+			print '\t' + topResults['d']['results'][i]['DisplayUrl']
+			uin = raw_input('\tRelevant? [Y/n] ')
+			while True:
+				if uin is "" or uin is 'y' or uin is 'Y':
+					relevance[i] = 1
+					break
+				elif uin is 'n' or uin is 'N':
+					break
+				else:
+					uin = raw_input("Invalid input, enter 'y' or 'n': ")
+		print relevance
+		#Rocchio...
+		
 
-
-
-
-
-
-
-
+		#make sure to clear allwords df and idf values before looping. 		
+			
