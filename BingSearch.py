@@ -221,7 +221,7 @@ if __name__ == "__main__":
 				uin = raw_input("Invalid input, enter 'y' or 'n': ")
 	print relevance
 	
-	queryMod = Rocchio(relevance, queryVector, termFreqs, 1, .75, .15)
+	queryMod = Rocchio(relevance, queryVector, tf_Idf, 1, .75, .15)
 	#print qMod
 	#print allWords.keys()
 	print getNewQuery(query, allWords.keys(), queryMod)
