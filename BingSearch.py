@@ -4,11 +4,13 @@ import json
 import string
 import sys
 import math
+execfile('algorithms.py')
 
 topResults = {}
 allWords = {}
 docs = {key: list() for key in range(10)}
-#query = ''
+termFreqs = []
+tf_Idf = []
 
 def formatQuery(query):
 	formattedQuery = "%27"
@@ -85,6 +87,7 @@ def getAllWords(topResults):
 
 	#essentially our document vectors:
 	#term frequency: number of occurences of every word in every document
+	global termFreqs 
 	termFreqs = [[docs[docKey].count(word) for word in allWords.keys()] for docKey in docs.keys()]
 	print '\ndocs[0]: ', docs[0]
 	#print '\nzip(termFreqs[0],allWords.keys()): ', zip(termFreqs[0],allWords.keys())
@@ -92,6 +95,7 @@ def getAllWords(topResults):
 	print '\nallWords: ', [allWords[word] for word in allWords]
 
 	#tf-idf: number of occurences of every word in every document, normalized by log(N/df)
+	global tf_Idf
 	tf_Idf = [[docs[docKey].count(word)*allWords[word][1]  for word in allWords.keys()] for docKey in docs.keys()]
 	#print tf_Idf
 	
@@ -141,12 +145,34 @@ def sims(queryVector,docVectorWeights):
 """ Computes the modified query from the relevant and non-relevant documents...
 	Based on Rocchio's algorithm
 """
-def Rocchio(queryVector, Docs, alpha, beta, gamma):
-	modQueryVec = []
-	# ??
+def Rocchio(relevance, queryVector, Docs, alpha, beta, gamma):
+
+	relDocs = [Docs[i] for i in range(len(Docs)) if relevance[i] == 1]
+	nonRelDocs = [Docs[i] for i in range(len(Docs)) if relevance[i] != 1]
+	
+	sumRelDocs = [sum(wordCol) for wordCol in zip(*relDocs)]
+	sumNonRelDocs = [sum(wordCol) for wordCol in zip(*nonRelDocs)]
+
+	term1 = [alpha*i for i in queryVector]
+	term2 = [float(beta)/len(relDocs) * i for i in sumRelDocs]
+	term3 = [float(gamma)/len(nonRelDocs) * i for i in sumNonRelDocs]
+	
+	modQueryVec = [sum(wordCol) for wordCol in zip(term1,term2,term3)]
+	
 	return modQueryVec
 
-
+def getNewQuery(query, allWordsKeys, queryMod):
+	values = zip(queryMod,allWordsKeys)
+	maxVal1 = values[0]
+	maxVal2 = values[0]
+	for tup in values:
+		if tup[0] > maxVal1[0] and tup[1] not in query:
+			maxVal1 = tup
+		elif tup[0] > maxVal2[0]  and tup[1] not in query:
+			maxVal2 = tup
+	return query + ' ' + maxVal1[1] + ' ' + maxVal2[1]
+	
+	
 
 def usage():
 	print """modQueryVec
@@ -158,53 +184,47 @@ if __name__ == "__main__":
 
 	if len(sys.argv)!=4: # Expect exactly three arguments: the account key, precision, and query string
 		usage()
-		sys.exit(2)
+		#sys.exit(2)
 
-		#was having some problems with my wifi at one point so I ran from a data.txt file rather 
-		# running the bing query every time...
-		# obviously it won't work later on when we add the relevance feedback
-		'''
-		data = open('data.txt','r')
-		topResults = json.load(data)
-		data.close()
-		tf_Idf = getAllWords(topResults)
-		print "\ntf_Idf: " , tf_Idf
+		#debugging 
+		accountKey = 'OWcbFzI/FPzmWjbmJcs8WSv0oZf1qkZ0Knxpz9nfyDI'		
+		precision = .9
 		query = 'gates'
-		queryVector = getQueryVector(query, allWords)
-		#docVectors = getDocVectors(docs, allWords)
-		print "\nsims: " , sims(queryVector,tf_Idf)
-		'''
+		
 	else:
 		accountKey = sys.argv[1]
 		precision = float(sys.argv[2])
 		query = sys.argv[3] # what about multiple word queries?
 
-		formattedQuery = formatQuery(query)
-		topResults = getTopResults(formattedQuery, accountKey)
-		tf_Idf = getAllWords(topResults)
+	formattedQuery = formatQuery(query)
+	topResults = getTopResults(formattedQuery, accountKey)
+	tf_Idf = getAllWords(topResults)
 
-		print "\ntf_Idf: " , tf_Idf
-		queryVector = getQueryVector(query, allWords)
-		print "\nsims: " , sims(queryVector,tf_Idf)
-		
-		#loop over topResults, get feedback
-		relevance = [0]*10
-		for i in range(10):
-			print '\n Result: ' + topResults['d']['results'][i]['Title']
-			print '\t' + topResults['d']['results'][i]['Description']
-			print '\t' + topResults['d']['results'][i]['DisplayUrl']
-			uin = raw_input('\tRelevant? [Y/n] ')
-			while True:
-				if uin is "" or uin is 'y' or uin is 'Y':
-					relevance[i] = 1
-					break
-				elif uin is 'n' or uin is 'N':
-					break
-				else:
-					uin = raw_input("Invalid input, enter 'y' or 'n': ")
-		print relevance
-		#Rocchio...
-		
+	print "\ntf_Idf: " , tf_Idf
+	queryVector = getQueryVector(query, allWords)
+	print "\nsims: " , sims(queryVector,tf_Idf)
+	
+	#loop over topResults, get feedback
+	relevance = [0]*10
+	for i in range(10):
+		print '\n Result: ' + topResults['d']['results'][i]['Title']
+		print '\t' + topResults['d']['results'][i]['Description']
+		print '\t' + topResults['d']['results'][i]['DisplayUrl']
+		uin = raw_input('\tRelevant? [Y/n] ')
+		while True:
+			if uin is "" or uin is 'y' or uin is 'Y':
+				relevance[i] = 1
+				break
+			elif uin is 'n' or uin is 'N':
+				break
+			else:
+				uin = raw_input("Invalid input, enter 'y' or 'n': ")
+	print relevance
+	
+	queryMod = Rocchio(relevance, queryVector, termFreqs, 1, .75, .15)
+	#print qMod
+	#print allWords.keys()
+	print getNewQuery(query, allWords.keys(), queryMod)
 
-		#make sure to clear allwords df and idf values before looping. 		
+	#make sure to clear allwords df and idf values before looping. 		
 			
