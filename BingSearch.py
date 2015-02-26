@@ -13,6 +13,13 @@ termFreqs = []
 tf_Idf = []
 stopWords = []
 
+def reset(element):
+	if type(element)==list:
+		element[:] = []
+	elif type(element)==dict:
+
+		element.clear()
+
 def formatQuery(query):
 	formattedQuery = "%27"
 	for term in query.split():
@@ -203,39 +210,53 @@ if __name__ == "__main__":
 		precision = float(sys.argv[2])
 		query = sys.argv[3] # what about multiple word queries?
 
-	formattedQuery = formatQuery(query)
-	getStopWords()
-	print stopWords
-	topResults = getTopResults(formattedQuery, accountKey)
-	tf_Idf = getAllWords(topResults)
-
-	print allWords
-
-	print "\ntf_Idf: " , tf_Idf
-	queryVector = getQueryVector(query, allWords)
-	print "\nsims: " , sims(queryVector,tf_Idf)
+	currPrecision = 0.0
 	
-	#loop over topResults, get feedback
-	relevance = [0]*10
-	for i in range(10):
-		print '\n Result: ' + topResults['d']['results'][i]['Title']
-		print '\t' + topResults['d']['results'][i]['Description']
-		print '\t' + topResults['d']['results'][i]['DisplayUrl']
-		uin = raw_input('\tRelevant? [Y/n] ')
-		while True:
-			if uin is "" or uin is 'y' or uin is 'Y':
-				relevance[i] = 1
-				break
-			elif uin is 'n' or uin is 'N':
-				break
-			else:
-				uin = raw_input("Invalid input, enter 'y' or 'n': ")
-	print relevance
-	
-	queryMod = Rocchio(relevance, queryVector, tf_Idf, 1, .75, .15)
-	#print qMod
-	#print allWords.keys()
-	print getNewQuery(query, allWords.keys(), queryMod)
+	while currPrecision < precision:
+		formattedQuery = formatQuery(query)
+		getStopWords()
+		# print stopWords
+
+		topResults = getTopResults(formattedQuery, accountKey)
+		tf_Idf = getAllWords(topResults)
+
+		# print allWords
+
+		print "\ntf_Idf: " , tf_Idf
+		queryVector = getQueryVector(query, allWords)
+		print "\nsims: " , sims(queryVector,tf_Idf)
+		
+		#loop over topResults, get feedback
+		relevance = [0]*10
+		for i in range(10):
+			print '\n Result: ' + topResults['d']['results'][i]['Title']
+			print '\t' + topResults['d']['results'][i]['Description']
+			print '\t' + topResults['d']['results'][i]['DisplayUrl']
+			uin = raw_input('\tRelevant? [Y/n] ')
+			while True:
+				if uin is "" or uin is 'y' or uin is 'Y':
+					relevance[i] = 1
+					break
+				elif uin is 'n' or uin is 'N':
+					break
+				else:
+					uin = raw_input("Invalid input, enter 'y' or 'n': ")
+		print relevance
+		currPrecision = sum(relevance)/10.0
+		print currPrecision
+
+		queryMod = Rocchio(relevance, queryVector, tf_Idf, 1, .75, .15)
+		#print qMod
+		#print allWords.keys()
+		query = getNewQuery(query, allWords.keys(), queryMod)
+		print query
+
+		reset(allWords)
+		reset(topResults)
+		reset(docs)
+		docs = {key: list() for key in range(10)}
+		reset(tf_Idf)
+		reset(termFreqs)
 
 	#make sure to clear allwords df and idf values before looping. 		
 			
