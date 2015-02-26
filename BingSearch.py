@@ -24,9 +24,9 @@ def formatQuery(query):
 def getStopWords():
 	f = open('english','r')
 	for word in f:
-			word = word.strip()
-			if word:
-				stopWords.append(word)
+		word = word.strip()
+		if word:
+			stopWords.append(word)
 
 def getTopResults(formattedQuery, accountKey):
 
