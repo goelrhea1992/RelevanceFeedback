@@ -176,13 +176,18 @@ def Rocchio(relevance, queryVector, Docs, alpha, beta, gamma):
 	return modQueryVec
 
 def getNewQuery(query, allWordsKeys, queryMod):
+	words = query.split(' ')
 	values = zip(queryMod,allWordsKeys)
-	maxVal1 = values[0]
-	maxVal2 = values[0]
-	for tup in values:
-		if tup[0] > maxVal1[0] and tup[1] not in query:
+	#print values, ' ' , words
+	for i in range(len(values)):
+		if values[i][1] not in words:
+			maxVal1 = values[i]
+			maxVal2 = values[i]
+	for tup in values:	
+		#print 'query: ',query,'  tup: ',tup
+		if tup[0] > maxVal1[0] and tup[1] not in words:
 			maxVal1 = tup
-		elif tup[0] > maxVal2[0]  and tup[1] not in query:
+		elif tup[0] > maxVal2[0]  and tup[1] not in words:
 			maxVal2 = tup
 	return query + ' ' + maxVal1[1] + ' ' + maxVal2[1]
 	
