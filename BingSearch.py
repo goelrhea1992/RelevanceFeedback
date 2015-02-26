@@ -4,13 +4,14 @@ import json
 import string
 import sys
 import math
-execfile('algorithms.py')
+# execfile('algorithms.py')
 
 topResults = {}
 allWords = {}
 docs = {key: list() for key in range(10)}
 termFreqs = []
 tf_Idf = []
+stopWords = []
 
 def formatQuery(query):
 	formattedQuery = "%27"
@@ -20,6 +21,12 @@ def formatQuery(query):
 	formattedQuery = formattedQuery + '%27'
 	return formattedQuery
 
+def getStopWords():
+	f = open('english','r')
+	for word in f:
+			word = word.strip()
+			if word:
+				stopWords.append(word)
 
 def getTopResults(formattedQuery, accountKey):
 
@@ -54,21 +61,21 @@ def getAllWords(topResults):
 			word = word.lower()
 			if word:
 				docs[i].append(word)
-				if allWords.has_key(word)==0:
+				if allWords.has_key(word)==0 and (word not in stopWords):
 					allWords[word] = [0,0]
 
 		for word in noPuncTitle.split(' '):
 			word = word.lower()
 			if word:
 				docs[i].append(word)
-				if allWords.has_key(word)==0:
+				if allWords.has_key(word)==0 and (word not in stopWords):
 					allWords[word] = [0,0]
 	
 	# in case query words aren't in title or desc
 	for word in query.split(' '):
 		word = word.lower()
 		if word:
-			if allWords.has_key(word)==0:
+			if allWords.has_key(word)==0 and (word not in stopWords):
 				allWords[word] = [0,0]
 	
 	print 'allWords.keys(): \t', allWords
@@ -197,8 +204,12 @@ if __name__ == "__main__":
 		query = sys.argv[3] # what about multiple word queries?
 
 	formattedQuery = formatQuery(query)
+	getStopWords()
+	print stopWords
 	topResults = getTopResults(formattedQuery, accountKey)
 	tf_Idf = getAllWords(topResults)
+
+	print allWords
 
 	print "\ntf_Idf: " , tf_Idf
 	queryVector = getQueryVector(query, allWords)
