@@ -4,7 +4,6 @@ import json
 import string
 import sys
 import math
-# execfile('algorithms.py')
 
 topResults = {}
 allWords = {}
@@ -14,13 +13,18 @@ tf_Idf = []
 stopWords = []
 
 def reset(element):
+	""" 
+	Clears the contents of list or dictionary element
+	"""
 	if type(element)==list:
 		element[:] = []
 	elif type(element)==dict:
-
 		element.clear()
 
 def formatQuery(query):
+	""" 
+	Formats a query od space separated words to a format needed by Bing URL
+	"""
 	formattedQuery = "%27"
 	for term in query.split():
 		formattedQuery = formattedQuery + term + '%20'
@@ -29,6 +33,9 @@ def formatQuery(query):
 	return formattedQuery
 
 def getStopWords():
+	""" 
+	Reads a file containing English stop words and populates the list stopWords
+	"""
 	f = open('english','r')
 	for word in f:
 		word = word.strip()
@@ -36,34 +43,37 @@ def getStopWords():
 			stopWords.append(word)
 
 def getTopResults(formattedQuery, accountKey):
+	""" 
+	Returns the search results for formattedQuery returned by Bing, in JSON format
+	"""
 
 	bingUrl = 'https://api.datamarket.azure.com/Bing/Search/Web?Query=' + formattedQuery + '&$top=10&$format=json'
 	# accountKey = 'OWcbFzI/FPzmWjbmJcs8WSv0oZf1qkZ0Knxpz9nfyDI'
 	accountKeyEnc = base64.b64encode(accountKey + ':' + accountKey)
 	headers = {'Authorization': 'Basic ' + accountKeyEnc}
 	req = urllib2.Request(bingUrl, headers = headers)
+	print '%-10s  =  %s'%('URL', bingUrl)
+
 	response = urllib2.urlopen(req)
 	content = response.read()
 	return json.loads(content)
-	#print topResults
-	#with open('data.txt','w') as outfile:
-	#	json.dump(topResults, outfile)
-	
-""" Gets all words from titles and descriptions
-	Computes termFrequency, inverse-document-frequency
 
-"""
 def getAllWords(topResults):
+	""" Gets all words from titles and descriptions
+	Computes termFrequency, inverse-document-frequency
+	Populates the dictionary allWords
+	"""
 	for i in range(0, 10):
 		desc = topResults['d']['results'][i]['Description']
-		
 		asciiDesc = desc.encode('ascii','ignore')
-		noPuncDesc = asciiDesc.translate(string.maketrans("",""), string.punctuation)
-
 		title = topResults['d']['results'][i]['Title']
 		asciiTitle = title.encode('ascii','ignore')
+
+		# remove punctuation marks
+		noPuncDesc = asciiDesc.translate(string.maketrans("",""), string.punctuation)
 		noPuncTitle = asciiTitle.translate(string.maketrans("",""), string.punctuation)
 
+		# Add all unique, non-stopwords to allWords - from both title and description
 		for word in noPuncDesc.split(' '):
 			word = word.lower()
 			if word:
@@ -85,61 +95,37 @@ def getAllWords(topResults):
 			if allWords.has_key(word)==0 and (word not in stopWords):
 				allWords[word] = [0,0]
 	
-	print 'allWords.keys(): \t', allWords
-	# put document frequencies and idf's in allWords dictionary
+	# put term frequencies and idf's in allWords dictionary
 	for word in allWords.keys():
 		for i in range(10):
 			if docs[i].count(word) > 0:
 				allWords[word][0] += 1
 				allWords[word][1] = math.log(10./allWords[word][0])
 
-	#print allWords
-	print 'allWords.keys(): \t', allWords
-
-	#print 'Documents: '
-	#print docs
-
 	#essentially our document vectors:
 	#term frequency: number of occurences of every word in every document
 	global termFreqs 
 	termFreqs = [[docs[docKey].count(word) for word in allWords.keys()] for docKey in docs.keys()]
-	print '\ndocs[0]: ', docs[0]
-	#print '\nzip(termFreqs[0],allWords.keys()): ', zip(termFreqs[0],allWords.keys())
-	#print termFreqs
-	print '\nallWords: ', [allWords[word] for word in allWords]
 
 	#tf-idf: number of occurences of every word in every document, normalized by log(N/df)
 	global tf_Idf
 	tf_Idf = [[docs[docKey].count(word)*allWords[word][1]  for word in allWords.keys()] for docKey in docs.keys()]
-	#print tf_Idf
 	
 	return tf_Idf	
-	
-	
-'''
-	termFreqs = 
-	for i in range(0, 10):
-		doc = 
-		termFreqs[i] = [document.count(term) for term in 
-	termFreqs = [[doc.count(term) for term in allWords] for doc in list(
-'''
 
-
-
-""" Computes and returns the queryVector
-
-query: the query as a simple white-space-delimited string
-allWords: the word vector (expanded list of all words in the query and the documents)
-"""
 def getQueryVector(query, allWords):
+	""" Computes and returns the queryVector
+		query: the query as a simple white-space-delimited string
+	 allWords: the word vector (expanded list of all words in the query and the documents)
+	"""
 	lquery = query.split(' ')
 	# this can't be right... should the 
 	queryVector = [1 if word in lquery else 0 for word in allWords.keys()]
 	return queryVector
 
-""" Computes the similarity between two items of the smae length
-"""
 def sim(queryVector, docVectorWeight):
+	""" Computes the similarity between two items of the smae length
+	"""
 	#Euclidian length (norm)
 	normQuery = math.sqrt(sum([p*p for p in queryVector]))
 	normDoc = math.sqrt(sum([p*p for p in docVectorWeight]))
@@ -147,20 +133,18 @@ def sim(queryVector, docVectorWeight):
 	sim = sum((p*d) for (p,d) in zip(queryVector, docVectorWeight)) / (normQuery*normDoc)
 	return sim
 
-""" Computes the similarities between the query and all documents
-"""
 def sims(queryVector,docVectorWeights):
+	""" Computes the similarities between the query and all documents
+	"""
 	sims = [0]*10
 	for i in range(10):
 		sims[i] = sim(queryVector,docVectorWeights[i])
 	return sims
 
-
-""" Computes the modified query from the relevant and non-relevant documents...
-	Based on Rocchio's algorithm
-"""
 def Rocchio(relevance, queryVector, Docs, alpha, beta, gamma):
-
+	""" Computes the modified query from the relevant and non-relevant documents...
+		Based on Rocchio's algorithm
+	"""
 	relDocs = [Docs[i] for i in range(len(Docs)) if relevance[i] == 1]
 	nonRelDocs = [Docs[i] for i in range(len(Docs)) if relevance[i] != 1]
 	
@@ -176,21 +160,39 @@ def Rocchio(relevance, queryVector, Docs, alpha, beta, gamma):
 	return modQueryVec
 
 def getNewQuery(query, allWordsKeys, queryMod):
+	""" 
+	Returns augmented query by finding the 2 maximum terms in the query vector
+	"""
+
 	words = query.split(' ')
 	values = zip(queryMod,allWordsKeys)
-	#print values, ' ' , words
 	for i in range(len(values)):
 		if values[i][1] not in words:
 			maxVal1 = values[i]
 			maxVal2 = values[i]
 	for tup in values:	
-		#print 'query: ',query,'  tup: ',tup
 		if tup[0] > maxVal1[0] and tup[1] not in words:
 			maxVal1 = tup
 		elif tup[0] > maxVal2[0]  and tup[1] not in words:
 			maxVal2 = tup
 	return query + ' ' + maxVal1[1] + ' ' + maxVal2[1]
 	
+def printParameters(accountKey, query, precision):
+	""" 
+	Prints the parameters in the format below
+	"""
+	print '\nParameters\n==================='
+	print '%-10s  =  %s'%('Client Key',accountKey)
+	print '%-10s  =  %s'%('Query', query)
+	print '%-10s  =  %s'%('Precision', precision)
+
+def printFeedbackSummary(query, currPrecision, precision):
+	""" 
+	Prints the parameters in the format below
+	"""
+	print "\nFEEDBACK SUMMARY\n==================="
+	print '%-10s  =  %s'%('Query', query)
+	print '%-10s  =  %s'%('Precision', currPrecision)
 	
 
 def usage():
@@ -216,28 +218,35 @@ if __name__ == "__main__":
 		query = sys.argv[3] # what about multiple word queries?
 
 	currPrecision = 0.0
+	reached = 0
+	nIter = 1
 	
 	while currPrecision < precision:
+		printParameters(accountKey, query, precision)
+
 		formattedQuery = formatQuery(query)
-		getStopWords()
-		# print stopWords
 
 		topResults = getTopResults(formattedQuery, accountKey)
+		numOfResults = len(topResults['d']['results'])
+		if numOfResults<10:
+			print 'Bing returned less than 10 results. Exiting.'
+			sys.exit(2)
+
+		print 'Total no of results : ' + str(numOfResults)
+		print '\nBing Search Results\n==================='
+		
+		getStopWords()
 		tf_Idf = getAllWords(topResults)
 
-		# print allWords
-
-		print "\ntf_Idf: " , tf_Idf
 		queryVector = getQueryVector(query, allWords)
-		print "\nsims: " , sims(queryVector,tf_Idf)
 		
 		#loop over topResults, get feedback
 		relevance = [0]*10
 		for i in range(10):
-			print '\n Result: ' + topResults['d']['results'][i]['Title']
-			print '\t' + topResults['d']['results'][i]['Description']
-			print '\t' + topResults['d']['results'][i]['DisplayUrl']
-			uin = raw_input('\tRelevant? [Y/n] ')
+			print '\n Result '+ str(i+1) + '\n[\n' + ' URL: '+topResults['d']['results'][i]['DisplayUrl']
+			print ' Title: ' + topResults['d']['results'][i]['Title']
+			print ' Summary: ' + topResults['d']['results'][i]['Description'] + '\n]'
+			uin = raw_input('\nRelevant? [Y/n] ')
 			while True:
 				if uin is "" or uin is 'y' or uin is 'Y':
 					relevance[i] = 1
@@ -246,15 +255,26 @@ if __name__ == "__main__":
 					break
 				else:
 					uin = raw_input("Invalid input, enter 'y' or 'n': ")
-		print relevance
-		currPrecision = sum(relevance)/10.0
-		print currPrecision
 
+		# if no relevant documents
+		if sum(relevance)==0:
+			print 'Below desired precision, but can no longer augment the query.'
+			sys.exit(2)
+
+		currPrecision = sum(relevance)/10.0
+
+		if currPrecision>=precision:
+			reached = 1
+			break
+
+		#print feedback summary
+		printFeedbackSummary(query, currPrecision, precision)
+		print 'Still below the desired precision of ' + str(precision)
+		print 'Indexing Results .... \nAugmenting query ...'
+
+		# get augmented query based on Rocchio's Algorithm
 		queryMod = Rocchio(relevance, queryVector, tf_Idf, 1, .75, .15)
-		#print qMod
-		#print allWords.keys()
 		query = getNewQuery(query, allWords.keys(), queryMod)
-		print query
 
 		reset(allWords)
 		reset(topResults)
@@ -262,6 +282,9 @@ if __name__ == "__main__":
 		docs = {key: list() for key in range(10)}
 		reset(tf_Idf)
 		reset(termFreqs)
+		nIter = nIter + 1
 
-	#make sure to clear allwords df and idf values before looping. 		
+	if reached:
+		printFeedbackSummary(query, currPrecision, precision)
+		print 'Desired Precision reached in ' + str(nIter) + ' iterations!\n'
 			
