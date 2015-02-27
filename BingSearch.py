@@ -9,7 +9,7 @@ topResults = {}
 allWords = {}
 docs = {key: list() for key in range(10)}
 termFreqs = []
-tf_Idf = []
+#tf_Idf = []
 stopWords = []
 
 def reset(element):
@@ -104,51 +104,57 @@ def getAllWords(topResults):
 
 	#essentially our document vectors:
 	#term frequency: number of occurences of every word in every document
-	global termFreqs 
-	termFreqs = [[docs[docKey].count(word) for word in allWords.keys()] for docKey in docs.keys()]
+	#global termFreqs 
+	#termFreqs = [[docs[docKey].count(word) for word in allWords.keys()] for docKey in docs.keys()]
 
 	#tf-idf: number of occurences of every word in every document, normalized by log(N/df)
-	global tf_Idf
-	tf_Idf = [[docs[docKey].count(word)*allWords[word][1]  for word in allWords.keys()] for docKey in docs.keys()]
-	
-	return tf_Idf	
-<<<<<<< HEAD
+	#global tf_Idf
+	#tf_Idf = [[docs[docKey].count(word)*allWords[word][1]  for word in allWords.keys()] for docKey in docs.keys()]
+	#print "tfIdf: \n",tf_Idf
+	#return tf_Idf	
 
-""" gets the term frequencies, given the list of words, and the words in each document
-"""
+
 def term_freqs(docs, allWords):
+	""" gets the term frequencies, given the list of words, and the words in each document
+	
+	"""
 	global termFreqs 
 	termFreqs = [[docs[docKey].count(word) for word in allWords.keys()] for docKey in docs.keys()]
 	return termFreqs
 
-""" gets the tf-idf
-"""
 def tf_idf(docs, allWords):
+	""" computes and returns the tf-idf
+	docs: a representation of a document simply consisting of a list of the words in the title and description
+	allWords: the word vector (expanded list of all words in the query and the documents)
+	"""
 	global tf_Idf
 	tf_Idf = [[docs[docKey].count(word)*allWords[word][1]  for word in allWords.keys()] for docKey in docs.keys()]
-	#print tf_Idf
-	return tf_idf
+	print tf_Idf
+	return tf_Idf
 
-""" Maximum tf Normalization
-"""
-def max_tf_normalize(a,termFreqs):	
+def max_tf_normalize(a,termFreqs):
+	""" Maximum tf Normalization
+	a: constant, generally set at .4
+	termFreqs: the term frequencies of words in each document
+	"""	
 	#tf-idf: number of occurences of every word in every document, normalized by log(N/df)
 	maxNormTermFreqs = [[]]*len(termFreqs)
 	for i in range(len(termFreqs)):
 		maxTF = max(termFreqs[i])
 		maxNormTermFreqs[i] = [a+(1-a)*( tf/float(maxTF) ) for tf in termFreqs[i]]
 	return maxNormTermFreqs
-""" Gets the Maximum normalized tf-idf, or ntf_idf
-"""
+
 def ntf_idf(a,termFreqs, allWords):
+	""" Gets the Maximum normalized tf-idf, or ntf_idf
+	a: constant, generally set at .4
+	termFreqs: the term frequencies of words in each document
+	allWords: the word vector (expanded list of all words in the query and the documents)
+	"""
 	maxNormTermFreqs = max_tf_normalize(a,termFreqs)
 	ntf_idf = [[]]*len(termFreqs)
 	for i in range(len(termFreqs)):
 		ntf_idf[i] = [ntf*allWords[word][1] for (ntf,word) in zip(maxNormTermFreqs[i],allWords)]
 	return ntf_idf
-
-=======
->>>>>>> 7109b48c19a87920a639f255500cf8184721ac76
 
 def getQueryVector(query, allWords):
 	""" Computes and returns the queryVector
@@ -162,6 +168,7 @@ def getQueryVector(query, allWords):
 
 def sim(queryVector, docVectorWeight):
 	""" Computes the similarity between two items of the smae length
+	Not Used!	
 	"""
 	#Euclidian length (norm)
 	normQuery = math.sqrt(sum([p*p for p in queryVector]))
@@ -172,6 +179,7 @@ def sim(queryVector, docVectorWeight):
 
 def sims(queryVector,docVectorWeights):
 	""" Computes the similarities between the query and all documents
+	Not Used!
 	"""
 	sims = [0]*10
 	for i in range(10):
@@ -264,20 +272,18 @@ if __name__ == "__main__":
 		formattedQuery = formatQuery(query)
 
 		topResults = getTopResults(formattedQuery, accountKey)
-<<<<<<< HEAD
 		getAllWords(topResults)
-=======
+
 		numOfResults = len(topResults['d']['results'])
 		if numOfResults<10:
 			print 'Bing returned less than 10 results. Exiting.'
 			sys.exit(2)
->>>>>>> 7109b48c19a87920a639f255500cf8184721ac76
 
 		print 'Total no of results : ' + str(numOfResults)
 		print '\nBing Search Results\n==================='
 		
 		getStopWords()
-		tf_Idf = getAllWords(topResults)
+		getAllWords(topResults)
 
 		queryVector = getQueryVector(query, allWords)
 		
@@ -314,14 +320,18 @@ if __name__ == "__main__":
 		print 'Indexing Results .... \nAugmenting query ...'
 
 		# get augmented query based on Rocchio's Algorithm
-		queryMod = Rocchio(relevance, queryVector, tf_Idf, 1, .75, .15)
+		_termFreqs = term_freqs(docs, allWords)
+		_tf_idf = tf_idf(docs, allWords)
+		_ntf_idf = ntf_idf(.4,_termFreqs, allWords):
+		
+		queryMod = Rocchio(relevance, queryVector, tf_idf(docs, allWords), 1, .75, .15)
 		query = getNewQuery(query, allWords.keys(), queryMod)
 
 		reset(allWords)
 		reset(topResults)
 		reset(docs)
 		docs = {key: list() for key in range(10)}
-		reset(tf_Idf)
+		#reset(tf_Idf)
 		reset(termFreqs)
 		nIter = nIter + 1
 
