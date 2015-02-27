@@ -1,0 +1,220 @@
+Parameters:
+===================
+Client Key          =  H2EarNgdMNX/DKlxOnRdLWByH/XzZJKpBsULFSbnkIs
+Query               =  musk
+Desired Precision   =  0.9
+Weighting Method    =  tf-idf
+URL                 =  https://api.datamarket.azure.com/Bing/Search/Web?Query=%27musk%27&$top=10&$format=json
+Total no of results : 10
+
+Bing Search Results
+===================
+AllWords: prior  []
+
+ Result 1
+[
+ URL: en.wikipedia.org/wiki/Musk
+ Title: Musk - Wikipedia, the free encyclopedia
+ Summary: Musk is a class of aromatic substances commonly used as base notes in perfumery. They include glandular secretions from animals such as the musk deer, numerous plants ...
+]
+
+Relevant? [Y/n] n
+
+ Result 2
+[
+ URL: en.wikipedia.org/wiki/Elon_Musk
+ Title: Elon Musk - Wikipedia, the free encyclopedia
+ Summary: Elon Reeve Musk (born June 28, 1971) is a South Africa-born, Canadian-American entrepreneur, engineer, inventor and investor. He is the CEO and CTO of ...
+]
+
+Relevant? [Y/n] y
+
+ Result 3
+[
+ URL: dictionary.reference.com/browse/musk
+ Title: Musk | Define Musk at Dictionary.com
+ Summary: The freezer case was full of curious meats: a snowy hunk of a fin whale's throat, a slab of musk ox. The resulting molecule is similar in shape and smell to the musk ...
+]
+
+Relevant? [Y/n] n
+
+ Result 4
+[
+ URL: www.fragrantica.com/notes/Musk-4.html
+ Title: Musk perfume ingredient, Musk fragrance and essential oils ...
+ Summary: Musk is a whole class of fragrant substances used as base notes in perfumery. This wonderful animalistic note creates a groundwork on which the rest of the aromatic ...
+]
+
+Relevant? [Y/n] n
+
+ Result 5
+[
+ URL: www.merriam-webster.com/dictionary/musk
+ Title: Musk - Definition and More from the Free Merriam-Webster ...
+ Summary: Full Definition of MUSK 1 a : a substance with a penetrating persistent odor obtained from a sac beneath the abdominal skin of the male musk deer and used as a ...
+]
+
+Relevant? [Y/n] n
+
+ Result 6
+[
+ URL: www.thefreedictionary.com/musk
+ Title: musk - definition of musk by The Free Dictionary
+ Summary: musk (mŭsk) n. 1. a. A greasy secretion with a powerful odor, produced in a glandular sac in the abdomen of a male musk deer and used in traditional medicines and ...
+]
+
+Relevant? [Y/n] n
+
+ Result 7
+[
+ URL: www.ebay.com/sch/i.html?_nkw=musk+oil
+ Title: musk oil | eBay
+ Summary: Find great deals on eBay for musk oil coty wild musk oil. Shop with confidence.
+]
+
+Relevant? [Y/n] n
+
+ Result 8
+[
+ URL: www.amazon.com/s?ie=UTF8&page=1&rh=n%3A3760911%2Ck%3Aperfume%20musk
+ Title: Amazon.com: perfume musk: Beauty
+ Summary: ASDM Beverly Hills Egyptian Musk, A Rich, Egyptian Musk With Precious Wood Blends and Floral Top Note., 0.5 Ounce. $25.00 $24.95 ;
+]
+
+Relevant? [Y/n] n
+
+ Result 9
+[
+ URL: www.cooperlabs.com/Musk
+ Title: The Original Musk Oil - 1-800-645-5048 - Cooperlabs Skin ...
+ Summary: The Original Musk Oil. Its ability to excite has been spoken of for centuries. You may not even be aware of its fragrance, but your own body chemistry is releasing ...
+]
+
+Relevant? [Y/n] n
+
+ Result 10
+[
+ URL: www.genecards.org/cgi-bin/carddisp.pl?gene=MUSK
+ Title: MUSK Gene - GeneCards | MUSK Protein | MUSK Antibody
+ Summary: Complete information for MUSK gene (protein-coding), muscle, skeletal, receptor tyrosine kinase, including: function, proteins, disorders, pathways, orthologs, and ...
+]
+
+Relevant? [Y/n] n
+
+FEEDBACK SUMMARY:
+===================
+Query       =  musk
+Precision   =  0.1
+Still below the desired precision of 0.9
+Indexing Results .... 
+Augmenting query ...
+
+Parameters:
+===================
+Client Key          =  H2EarNgdMNX/DKlxOnRdLWByH/XzZJKpBsULFSbnkIs
+Query               =  elon reeve musk
+Desired Precision   =  0.9
+Weighting Method    =  tf-idf
+URL                 =  https://api.datamarket.azure.com/Bing/Search/Web?Query=%27elon%20reeve%20musk%27&$top=10&$format=json
+Total no of results : 10
+
+Bing Search Results
+===================
+AllWords: prior  []
+
+ Result 1
+[
+ URL: en.wikipedia.org/wiki/Elon_Musk
+ Title: Elon Musk - Wikipedia, the free encyclopedia
+ Summary: Elon Reeve Musk (born June 28, 1971) is a South Africa-born, Canadian-American entrepreneur, engineer, inventor and investor. He is the CEO and CTO of ...
+]
+
+Relevant? [Y/n] y
+
+ Result 2
+[
+ URL: elonreevemusk.com
+ Title: Elon Musk - Canadian American business magnate, inventor ...
+ Summary: Elon Musk is the CEO and product architect of Tesla Motors and the CEO/CTO of Space Exploration Technologies (SpaceX)
+]
+
+Relevant? [Y/n] y
+
+ Result 3
+[
+ URL: elonreevemusk.com/author/administrator
+ Title: Elon Musk
+ Summary: Elon Reeve Musk is a South Africa-born, Canadian American business magnate, inventor, and investor. He is the CEO and CTO of SpaceX, CEO and chief product architect ...
+]
+
+Relevant? [Y/n] y
+
+ Result 4
+[
+ URL: https://www.facebook.com/TheElonMusk
+ Title: Elon Reeve Musk | Facebook
+ Summary: Elon Reeve Musk. 340 likes · 82 talking about this. Fan Page of Elon Musk - Canadian-American business magnate, inventor, and investor. Founder and CEO...
+]
+
+Relevant? [Y/n] y
+
+ Result 5
+[
+ URL: www.marketwatch.com/investing/stock/tsla/insiders?pid=63403856
+ Title: TSLA Elon Reeve Musk Insider Trades for Tesla Motors Inc.
+ Summary: Elon Reeve Musk. Mr. Elon R. Musk is Chairman at SolarCity Corp., Chairman & Chief Executive Officer at Tesla Motors, Inc., ...
+]
+
+Relevant? [Y/n] y
+
+ Result 6
+[
+ URL: https://twitter.com/TheKayusBobo
+ Title: Elon Reeve Musk (@TheKayusBobo) | Twitter
+ Summary: The latest Tweets from Elon Reeve Musk (@TheKayusBobo). NGBATI HI GROW HOP HIGH WAN NA BE RAZZ SO BAD. A.W.O.L
+]
+
+Relevant? [Y/n] y
+
+ Result 7
+[
+ URL: blogs.wsj.com/corporate-intelligence/2015/01/13/teslas-musk...
+ Title: Tesla’s Musk Attracts a Crowd in Detroit - Corporate ...
+ Summary: Jan. 13, 2015 – Detroit, MI, UNITED STATES – Elon Reeve Musk speaks at the Automotive News World Congress held at the Detroit Marriott in Detroit ...
+]
+
+Relevant? [Y/n] y
+
+ Result 8
+[
+ URL: www.patentbuddy.com/Inventor/Musk-Elon-Reeve/18027313
+ Title: Elon Reeve Musk, Inventor, Los Angeles, CA, US
+ Summary: Elon Reeve Musk's Inventor profile, Los Angeles, CA, US, TESLA MOTORS, INC.;, 4 patents/applications from Feb 08, 2012 to Jul 13, 2012, 6 forward patent citations ...
+]
+
+Relevant? [Y/n] y
+
+ Result 9
+[
+ URL: sylc.info/elon-reeve-musk-legend-making
+ Title: Elon Reeve Musk – A legend in the making | celebrities ...
+ Summary: Elon Reeve Musk was born in South Africa and is a Canadian-American business magnate. He is an inventor and investor. Being an early investor in SpaceX, PayPal, Tesla ...
+]
+
+Relevant? [Y/n] y
+
+ Result 10
+[
+ URL: www.change.org/p/...committee-nobel-prize-in-economics-to-elon-musk
+ Title: Petition · Nobel Prize in economics to Elon Musk ...
+ Summary: Nobel Prize in economics to Elon Musk. Elon Reeve Musk is the CEO and CTO of SpaceX, CEO and chief product architect of Tesla Motors and chairman of SolarCity.
+]
+
+Relevant? [Y/n] y
+
+FEEDBACK SUMMARY:
+===================
+Query       =  elon reeve musk
+Precision   =  1.0
+Desired Precision reached in 2 iterations!
+

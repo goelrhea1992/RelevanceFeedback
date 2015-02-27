@@ -1,0 +1,901 @@
+################################## using TF-IDF ###############################################
+
+
+Parameters:
+===================
+Client Key          =  H2EarNgdMNX/DKlxOnRdLWByH/XzZJKpBsULFSbnkIs
+Query               =  gates
+Desired Precision   =  0.9
+Weighting Method    =  tf-idf
+URL                 =  https://api.datamarket.azure.com/Bing/Search/Web?Query=%27gates%27&$top=10&$format=json
+Total no of results : 10
+
+Bing Search Results
+===================
+AllWords: prior  []
+
+ Result 1
+[
+ URL: www.gates.com
+ Title: Gates Corporation
+ Summary: Gates Corporation is Powering Progress™ in the Oil & Gas, Energy, Mining, Marine, Agriculture, Transportation and Automotive Industries.
+]
+
+Relevant? [Y/n] n
+
+ Result 2
+[
+ URL: www.amazon.com/s?ie=UTF8&page=1&rh=i%3Aaps%2Ck%3Agates
+ Title: Amazon.com: gates
+ Summary: Product Description... Easy Open Extra Wide Safety Gate boasts 100 percent steel ...
+]
+
+Relevant? [Y/n] n
+
+ Result 3
+[
+ URL: www.gatecrafters.com/design_your_gates.aspx
+ Title: Driveway Gates | Automatic Gates | Electric Gates
+ Summary: Driveway Gates - Automatic Gates The high-quality driveway gates from GateCrafters.com come in a wide variety of options to ...
+]
+
+Relevant? [Y/n] n
+
+ Result 4
+[
+ URL: www.gates.com/industries/automotive
+ Title: Gates Automotive Aftermarket Solutions | Gates Corporation
+ Summary: Gates offers a complete line of original equipment (OE) automotive aftermarket products and solutions, including automotive hose, belts, & accessories.
+]
+
+Relevant? [Y/n] n
+
+ Result 5
+[
+ URL: https://www.facebook.com/gatesnj
+ Title: gates | Facebook
+ Summary: Gates joined us after their session for an interview to discuss Nebraska, the "real Dan" and the finer points of recording a bass drum in a large empty room ...
+]
+
+Relevant? [Y/n] n
+
+ Result 6
+[
+ URL: www.gatesbbq.com
+ Title: Gates Bar B.Q.
+ Summary: With the tantalizing hickory barbecue smell drawing the customer through the ranch-style doors, he is immediately greeted.
+]
+
+Relevant? [Y/n] n
+
+ Result 7
+[
+ URL: gateshousings.com
+ Title: Gates Underwater Products | 'Bulletproof' Housings
+ Summary: Zsolt Sásdi demonstrates how to produce incredible underwater motion images with the Gates AX100 rig. His Demo Reel can be viewed in 4K. www.saser.hu...
+]
+
+Relevant? [Y/n] n
+
+ Result 8
+[
+ URL: navigates.gates.com
+ Title: NaviGates - Gates Corporation
+ Summary: Gates high quality belt & hose solutions support your energy, exploration, extraction, infrastructure, agriculture & transportation needs.
+]
+
+Relevant? [Y/n] n
+
+ Result 9
+[
+ URL: www.toysrus.com/family/index.jsp?categoryId=2256222
+ Title: Baby Gates - Babies"R"Us
+ Summary: Safe & durable baby gates will keep your baby safe. Choose from a large assortment of baby gates including extra wide gates to suit your needs. Shop today.
+]
+
+Relevant? [Y/n] n
+
+ Result 10
+[
+ URL: en.wikipedia.org/wiki/Bill_Gates
+ Title: Bill Gates - Wikipedia, the free encyclopedia
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, philanthropist, investor, computer programmer, and inventor. Gates ...
+]
+
+Relevant? [Y/n] y
+
+FEEDBACK SUMMARY:
+===================
+Query       =  gates
+Precision   =  0.1
+Still below the desired precision of 0.9
+Indexing Results .... 
+Augmenting query ...
+
+Parameters:
+===================
+Client Key          =  H2EarNgdMNX/DKlxOnRdLWByH/XzZJKpBsULFSbnkIs
+Query               =  bill william gates
+Desired Precision   =  0.9
+Weighting Method    =  tf-idf
+URL                 =  https://api.datamarket.azure.com/Bing/Search/Web?Query=%27bill%20william%20gates%27&$top=10&$format=json
+Total no of results : 10
+
+Bing Search Results
+===================
+AllWords: prior  []
+
+ Result 1
+[
+ URL: en.wikipedia.org/wiki/Bill_Gates
+ Title: Bill Gates - Wikipedia, the free encyclopedia
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, philanthropist, investor, computer programmer, and inventor.
+]
+
+Relevant? [Y/n] y
+
+ Result 2
+[
+ URL: en.wikipedia.org/wiki/William_H._Gates,_Sr.
+ Title: William H. Gates, Sr. - Wikipedia, the free encyclopedia
+ Summary: William Henry "Bill" Gates, Sr. (born William Henry Gates II ; November 30, 1925) is a retired American attorney and philanthropist and author of the book Showing Up ...
+]
+
+Relevant? [Y/n] n
+
+ Result 3
+[
+ URL: www.biography.com/people/bill-gates-9307520
+ Title: Bill Gates - Biography - - Biography.com
+ Summary: Entrepreneur Bill Gates founded the world's largest software business, Microsoft, with Paul Allen, and subsequently became one of the richest men in the world.
+]
+
+Relevant? [Y/n] y
+
+ Result 4
+[
+ URL: en.wikipedia.org/wiki/William_Gates_(basketball)
+ Title: William Gates (basketball) - Wikipedia, the free encyclopedia
+ Summary: William Gates (born December 28, 1971 in Chicago, Illinois) is an American retired high school and college basketball player, and a subject of the 1994 Kartemquin ...
+]
+
+Relevant? [Y/n] n
+
+ Result 5
+[
+ URL: www.forbes.com/profile/bill-gates
+ Title: Bill Gates - Forbes - Information for the World's Business ...
+ Summary: America's richest man, Bill Gates, is using his billions to effect major social change around the globe. The Bill & Melinda Gates Foundation has given away $30 ...
+]
+
+Relevant? [Y/n] y
+
+ Result 6
+[
+ URL: www.bloomberg.com/research/stocks/people/person.asp?personId=...
+ Title: William Henry Gates III: Executive Profile & Biography ...
+ Summary: Background* Mr. William Henry Gates, III, also known as Bill, co-founded Microsoft Corporation in 1975 and has been its Technology Advisor since February 4, 2014.
+]
+
+Relevant? [Y/n] y
+
+ Result 7
+[
+ URL: https://www.linkedin.com/in/williamhgates
+ Title: Bill Gates | LinkedIn
+ Summary: View Bill Gates's professional profile on LinkedIn. LinkedIn is the world's largest business network, helping professionals like Bill Gates discover inside ...
+]
+
+Relevant? [Y/n] n
+
+ Result 8
+[
+ URL: https://twitter.com/billgates
+ Title: Bill Gates (BillGates) on Twitter - Welcome to Twitter ...
+ Summary: Bill Gates @ BillGates · Feb 5 “What about Ebola?” and other questions from our Annual Letter tour: http:// b-gat.es/18SN3Rr pic.twitter.com/1znciSna2J.
+]
+
+Relevant? [Y/n] n
+
+ Result 9
+[
+ URL: sco.wikipedia.org/wiki/Bill_Gates
+ Title: Bill Gates - Wikipedia
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate , investor, programmer, inventor an philanthropist. Gates is the umwhile chief ...
+]
+
+Relevant? [Y/n] y
+
+ Result 10
+[
+ URL: collegebasketballtalk.nbcsports.com/2013/05/09/william-gates-jr...
+ Title: William Gates Jr., out of his dad’s shadow but still ...
+ Summary: Growing up in Chicago as the son of “Hoop Dreams” star and a prep basketball legend in the city, one would think that William Gates Jr. would have been ...
+]
+
+Relevant? [Y/n] n
+
+FEEDBACK SUMMARY:
+===================
+Query       =  bill william gates
+Precision   =  0.5
+Still below the desired precision of 0.9
+Indexing Results .... 
+Augmenting query ...
+
+Parameters:
+===================
+Client Key          =  H2EarNgdMNX/DKlxOnRdLWByH/XzZJKpBsULFSbnkIs
+Query               =  bill william gates iii october
+Desired Precision   =  0.9
+Weighting Method    =  tf-idf
+URL                 =  https://api.datamarket.azure.com/Bing/Search/Web?Query=%27bill%20william%20gates%20iii%20october%27&$top=10&$format=json
+Total no of results : 10
+
+Bing Search Results
+===================
+AllWords: prior  []
+
+ Result 1
+[
+ URL: en.wikipedia.org/wiki/Bill_Gates
+ Title: Bill Gates - Wikipedia, the free encyclopedia
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, philanthropist, investor, computer programmer, and inventor. Gates ...
+]
+
+Relevant? [Y/n] y
+
+ Result 2
+[
+ URL: www.biography.com/people/bill-gates-9307520
+ Title: Bill Gates - Biography - - Biography.com
+ Summary: Biography.com tracks the life and career of Bill Gates, ... Bill Gates was born William Henry Gates III on October ... his involvement with the Bill and Melinda Gates ...
+]
+
+Relevant? [Y/n] y
+
+ Result 3
+[
+ URL: www.britannica.com/EBchecked/topic/226865
+ Title: Bill Gates | biography - American computer programmer ...
+ Summary: Bill Gates, in full William Henry Gates III (born October 28, 1955, Seattle, Washington, U.S.), American computer programmer and entrepreneur who cofounded Microsoft ...
+]
+
+Relevant? [Y/n] y
+
+ Result 4
+[
+ URL: worldhistoryproject.org/1955/10/28/bill-gates-is-born
+ Title: Bill Gates is born | World History Project
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, philanthropist, and chairman of Microsoft, the software company he founded ...
+]
+
+Relevant? [Y/n] y
+
+ Result 5
+[
+ URL: www.geni.com/people/Bill-Gates/6000000002467188250
+ Title: William Henry Gates, III - Genealogy - Family Tree ...
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, philanthropist, and chairman of Microsoft, the software company he founded ...
+]
+
+Relevant? [Y/n] y
+
+ Result 6
+[
+ URL: https://www.facebook.com/BillGates2015
+ Title: Bill Gates 2015 | Facebook
+ Summary: Bill Gates 2015, Tallahassee, Florida. 1,104 likes · 1,099 talking about this. William Henry "Bill" Gates III (born October 28, 1955) is an American...
+]
+
+Relevant? [Y/n] n
+
+ Result 7
+[
+ URL: www.wayne.k12.ms.us/userfiles/191/Classes/1372/billgatesbiography1.pdf
+ Title: Bill Gates Biography - Wayne County Schools
+ Summary: Bill Gates Biography in full William ... Born William Henry Gates, III, on October ... combined several family foundations to form the Bill and Melinda Gates ...
+]
+
+Relevant? [Y/n] y
+
+ Result 8
+[
+ URL: billgates44.blogspot.com/...william-henry-gates-iii-october-28.html
+ Title: Bill Gates - blogspot.com
+ Summary: Born William Henry Gates III October 28, 1955 Seattle, Washington, U.S. Nationality American Occupation Co-founder and Chairman of Microsoft Co-Chair of ...
+]
+
+Relevant? [Y/n] y
+
+ Result 9
+[
+ URL: mashable.com/category/bill-gates
+ Title: Bill Gates - Mashable
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate and philanthropist. Gates is the former chief executive and current ...
+]
+
+Relevant? [Y/n] y
+
+ Result 10
+[
+ URL: www.powershow.com/view/1cfc4-ZDE2O/William_Henry_Gates_III_Bill...
+ Title: William Henry Gates III Bill Gates October 28, 1955 ...
+ Summary: William Henry Gates III. Bill Gates. October 28, 1955. Early days, computers were very hard to ... Bill Gates has donated more than $27 Billion worldwide. ...
+]
+
+Relevant? [Y/n] y
+
+FEEDBACK SUMMARY:
+===================
+Query       =  bill william gates iii october
+Precision   =  0.9
+Desired Precision reached in 3 iterations!
+
+
+
+
+################################## using NTF-IDF ###############################################
+
+
+Parameters:
+===================
+Client Key          =  H2EarNgdMNX/DKlxOnRdLWByH/XzZJKpBsULFSbnkIs
+Query               =  gates
+Desired Precision   =  0.9
+Weighting Method    =  ntf-idf
+URL                 =  https://api.datamarket.azure.com/Bing/Search/Web?Query=%27gates%27&$top=10&$format=json
+Total no of results : 10
+
+Bing Search Results
+===================
+AllWords: prior  []
+
+ Result 1
+[
+ URL: www.gates.com
+ Title: Gates Corporation
+ Summary: Gates Corporation is Powering Progress™ in the Oil & Gas, Energy, Mining, Marine, Agriculture, Transportation and Automotive Industries.
+]
+
+Relevant? [Y/n] n
+
+ Result 2
+[
+ URL: www.amazon.com/s?ie=UTF8&page=1&rh=i%3Aaps%2Ck%3Agates
+ Title: Amazon.com: gates
+ Summary: Product Description... Easy Open Extra Wide Safety Gate boasts 100 percent steel ...
+]
+
+Relevant? [Y/n] n
+
+ Result 3
+[
+ URL: www.gatecrafters.com/design_your_gates.aspx
+ Title: Driveway Gates | Automatic Gates | Electric Gates
+ Summary: Driveway Gates - Automatic Gates The high-quality driveway gates from GateCrafters.com come in a wide variety of options to ...
+]
+
+Relevant? [Y/n] n
+
+ Result 4
+[
+ URL: www.gates.com/industries/automotive
+ Title: Gates Automotive Aftermarket Solutions | Gates Corporation
+ Summary: Gates offers a complete line of original equipment (OE) automotive aftermarket products and solutions, including automotive hose, belts, & accessories.
+]
+
+Relevant? [Y/n] 
+Invalid input, enter 'y' or 'n': n
+
+ Result 5
+[
+ URL: https://www.facebook.com/gatesnj
+ Title: gates | Facebook
+ Summary: Gates joined us after their session for an interview to discuss Nebraska, the "real Dan" and the finer points of recording a bass drum in a large empty room ...
+]
+
+Relevant? [Y/n] n
+
+ Result 6
+[
+ URL: www.gatesbbq.com
+ Title: Gates Bar B.Q.
+ Summary: With the tantalizing hickory barbecue smell drawing the customer through the ranch-style doors, he is immediately greeted.
+]
+
+Relevant? [Y/n] n
+
+ Result 7
+[
+ URL: gateshousings.com
+ Title: Gates Underwater Products | 'Bulletproof' Housings
+ Summary: Zsolt Sásdi demonstrates how to produce incredible underwater motion images with the Gates AX100 rig. His Demo Reel can be viewed in 4K. www.saser.hu...
+]
+
+Relevant? [Y/n] n
+
+ Result 8
+[
+ URL: navigates.gates.com
+ Title: NaviGates - Gates Corporation
+ Summary: Gates high quality belt & hose solutions support your energy, exploration, extraction, infrastructure, agriculture & transportation needs.
+]
+
+Relevant? [Y/n] n
+
+ Result 9
+[
+ URL: www.toysrus.com/family/index.jsp?categoryId=2256222
+ Title: Baby Gates - Babies"R"Us
+ Summary: Safe & durable baby gates will keep your baby safe. Choose from a large assortment of baby gates including extra wide gates to suit your needs. Shop today.
+]
+
+Relevant? [Y/n] n
+
+ Result 10
+[
+ URL: en.wikipedia.org/wiki/Bill_Gates
+ Title: Bill Gates - Wikipedia, the free encyclopedia
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, philanthropist, investor, computer programmer, and inventor. Gates ...
+]
+
+Relevant? [Y/n] y
+
+FEEDBACK SUMMARY:
+===================
+Query       =  gates
+Precision   =  0.1
+Still below the desired precision of 0.9
+Indexing Results .... 
+Augmenting query ...
+
+Parameters:
+===================
+Client Key          =  H2EarNgdMNX/DKlxOnRdLWByH/XzZJKpBsULFSbnkIs
+Query               =  bill gates william
+Desired Precision   =  0.9
+Weighting Method    =  ntf-idf
+URL                 =  https://api.datamarket.azure.com/Bing/Search/Web?Query=%27bill%20gates%20william%27&$top=10&$format=json
+Total no of results : 10
+
+Bing Search Results
+===================
+AllWords: prior  []
+
+ Result 1
+[
+ URL: en.wikipedia.org/wiki/Bill_Gates
+ Title: Bill Gates - Wikipedia, the free encyclopedia
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, philanthropist, investor, computer programmer, and inventor.
+]
+
+Relevant? [Y/n] y
+
+ Result 2
+[
+ URL: www.biography.com/people/bill-gates-9307520
+ Title: Bill Gates - Biography - - Biography.com
+ Summary: Entrepreneur Bill Gates founded the world's largest software business, Microsoft, with Paul Allen, and subsequently became one of the richest men in the world.
+]
+
+Relevant? [Y/n] y
+
+ Result 3
+[
+ URL: en.wikipedia.org/wiki/William_H._Gates,_Sr.
+ Title: William H. Gates, Sr. - Wikipedia, the free encyclopedia
+ Summary: William Henry "Bill" Gates, Sr. (born William Henry Gates II ; November 30, 1925) is a retired American attorney and philanthropist and author of the book Showing Up ...
+]
+
+Relevant? [Y/n] n
+
+ Result 4
+[
+ URL: news.microsoft.com/exec/billg
+ Title: Bill Gates Keynote: Microsoft Tech•Ed 2008 ...
+ Summary: BILL GATES: Good morning and welcome to Tech•Ed. This is the first year that we broke Tech•Ed into two sections, the section this week, which is just ...
+]
+
+Relevant? [Y/n] y
+
+ Result 5
+[
+ URL: www.bloomberg.com/research/stocks/people/person.asp?personId=...
+ Title: William Henry Gates III: Executive Profile & Biography ...
+ Summary: Background* Mr. William Henry Gates, III, also known as Bill, co-founded Microsoft Corporation in 1975 and has been its Technology Advisor since February 4, 2014.
+]
+
+Relevant? [Y/n] y
+
+ Result 6
+[
+ URL: www.forbes.com/profile/bill-gates
+ Title: Bill Gates - Forbes - Information for the World's Business ...
+ Summary: America's richest man, Bill Gates, is using his billions to effect major social change around the globe. The Bill & Melinda Gates Foundation has given away $30 ...
+]
+
+Relevant? [Y/n] y
+
+ Result 7
+[
+ URL: www.barnesandnoble.com/s/Bill-Gates-A-Biography?aref=1535
+ Title: Bill Gates A Biography, $10 - $25 | Barnes & Noble
+ Summary: FIND Bill Gates A Biography, $10 - $25 on Barnes & Noble. Free 3-Day shipping on $25 orders! ... William Blake: The Gates of... Michael Bedard. Hardcover $14.35 .
+]
+
+Relevant? [Y/n] y
+
+ Result 8
+[
+ URL: www.gatesnotes.com
+ Title: Home | Bill Gates
+ Summary: The blog of Bill Gates. gates notes. The blog of Bill Gates. ... About Bill. All Posts. Follow. Like. Subscribe. Contact. SHARE ` Like. Tweet. Share. Submit. E-mail.
+]
+
+Relevant? [Y/n] y
+
+ Result 9
+[
+ URL: www.gatesnotes.com/Bio
+ Title: Bio | Bill Gates
+ Summary: Bill Gates is a technologist, business leader, and philanthropist. He grew up in Seattle, Washington, with an amazing and supportive family who encouraged his ...
+]
+
+Relevant? [Y/n] y
+
+ Result 10
+[
+ URL: news.microsoft.com/exec/bill
+ Title: Bill Gates | News Center
+ Summary: William (Bill) H. Gates is founder, technology advisor and board member of Microsoft Corporation, the worldwide leader in software, services and solutions that help ...
+]
+
+Relevant? [Y/n] y
+
+FEEDBACK SUMMARY:
+===================
+Query       =  bill gates william
+Precision   =  0.9
+Desired Precision reached in 2 iterations!
+
+
+
+
+################################## using WF-IDF ###############################################
+
+
+Parameters:
+===================
+Client Key          =  H2EarNgdMNX/DKlxOnRdLWByH/XzZJKpBsULFSbnkIs
+Query               =  gates
+Desired Precision   =  0.9
+Weighting Method    =  wf-idf
+URL                 =  https://api.datamarket.azure.com/Bing/Search/Web?Query=%27gates%27&$top=10&$format=json
+Total no of results : 10
+
+Bing Search Results
+===================
+AllWords: prior  []
+
+ Result 1
+[
+ URL: www.gates.com
+ Title: Gates Corporation
+ Summary: Gates Corporation is Powering Progress™ in the Oil & Gas, Energy, Mining, Marine, Agriculture, Transportation and Automotive Industries.
+]
+
+Relevant? [Y/n] n
+
+ Result 2
+[
+ URL: www.gatecrafters.com/design_your_gates.aspx
+ Title: Driveway Gates | Automatic Gates | Electric Gates
+ Summary: Driveway Gates - Automatic Gates The high-quality driveway gates from GateCrafters.com come in a wide variety of options to ...
+]
+
+Relevant? [Y/n] n
+
+ Result 3
+[
+ URL: www.amazon.com/s?ie=UTF8&page=1&rh=i%3Aaps%2Ck%3Agates
+ Title: Amazon.com: gates
+ Summary: Product Description... Easy Open Extra Wide Safety Gate boasts 100 percent steel ...
+]
+
+Relevant? [Y/n] nn
+Invalid input, enter 'y' or 'n': n
+
+ Result 4
+[
+ URL: www.gates.com/industries/automotive
+ Title: Gates Automotive Aftermarket Solutions | Gates Corporation
+ Summary: Gates offers a complete line of original equipment (OE) automotive aftermarket products and solutions, including automotive hose, belts, & accessories.
+]
+
+Relevant? [Y/n] n
+
+ Result 5
+[
+ URL: https://www.facebook.com/gatesnj
+ Title: gates | Facebook
+ Summary: Gates joined us after their session for an interview to discuss Nebraska, the "real Dan" and the finer points of recording a bass drum in a large empty room ...
+]
+
+Relevant? [Y/n] n
+
+ Result 6
+[
+ URL: www.gatesbbq.com
+ Title: Gates Bar B.Q.
+ Summary: With the tantalizing hickory barbecue smell drawing the customer through the ranch-style doors, he is immediately greeted.
+]
+
+Relevant? [Y/n] n
+
+ Result 7
+[
+ URL: gateshousings.com
+ Title: Gates Underwater Products | 'Bulletproof' Housings
+ Summary: Zsolt Sásdi demonstrates how to produce incredible underwater motion images with the Gates AX100 rig. His Demo Reel can be viewed in 4K. www.saser.hu...
+]
+
+Relevant? [Y/n] n
+
+ Result 8
+[
+ URL: navigates.gates.com
+ Title: NaviGates - Gates Corporation
+ Summary: Gates high quality belt & hose solutions support your energy, exploration, extraction, infrastructure, agriculture & transportation needs.
+]
+
+Relevant? [Y/n] n
+
+ Result 9
+[
+ URL: www.toysrus.com/family/index.jsp?categoryId=2256222
+ Title: Baby Gates - Babies"R"Us
+ Summary: Safe & durable baby gates will keep your baby safe. Choose from a large assortment of baby gates including extra wide gates to suit your needs. Shop today.
+]
+
+Relevant? [Y/n] n
+
+ Result 10
+[
+ URL: en.wikipedia.org/wiki/Bill_Gates
+ Title: Bill Gates - Wikipedia, the free encyclopedia
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, philanthropist, investor, computer programmer, and inventor. Gates ...
+]
+
+Relevant? [Y/n] y
+
+FEEDBACK SUMMARY:
+===================
+Query       =  gates
+Precision   =  0.1
+Still below the desired precision of 0.9
+Indexing Results .... 
+Augmenting query ...
+
+Parameters:
+===================
+Client Key          =  H2EarNgdMNX/DKlxOnRdLWByH/XzZJKpBsULFSbnkIs
+Query               =  bill william gates
+Desired Precision   =  0.9
+Weighting Method    =  wf-idf
+URL                 =  https://api.datamarket.azure.com/Bing/Search/Web?Query=%27bill%20william%20gates%27&$top=10&$format=json
+Total no of results : 10
+
+Bing Search Results
+===================
+AllWords: prior  []
+
+ Result 1
+[
+ URL: en.wikipedia.org/wiki/Bill_Gates
+ Title: Bill Gates - Wikipedia, the free encyclopedia
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, philanthropist, investor, computer programmer, and inventor.
+]
+
+Relevant? [Y/n] y
+
+ Result 2
+[
+ URL: en.wikipedia.org/wiki/William_H._Gates,_Sr.
+ Title: William H. Gates, Sr. - Wikipedia, the free encyclopedia
+ Summary: William Henry "Bill" Gates, Sr. (born William Henry Gates II ; November 30, 1925) is a retired American attorney and philanthropist and author of the book Showing Up ...
+]
+
+Relevant? [Y/n] n
+
+ Result 3
+[
+ URL: www.biography.com/people/bill-gates-9307520
+ Title: Bill Gates - Biography - - Biography.com
+ Summary: Entrepreneur Bill Gates founded the world's largest software business, Microsoft, with Paul Allen, and subsequently became one of the richest men in the world.
+]
+
+Relevant? [Y/n] y
+
+ Result 4
+[
+ URL: en.wikipedia.org/wiki/William_Gates_(basketball)
+ Title: William Gates (basketball) - Wikipedia, the free encyclopedia
+ Summary: William Gates (born December 28, 1971 in Chicago, Illinois) is an American retired high school and college basketball player, and a subject of the 1994 Kartemquin ...
+]
+
+Relevant? [Y/n] n
+
+ Result 5
+[
+ URL: www.forbes.com/profile/bill-gates
+ Title: Bill Gates - Forbes - Information for the World's Business ...
+ Summary: America's richest man, Bill Gates, is using his billions to effect major social change around the globe. The Bill & Melinda Gates Foundation has given away $30 ...
+]
+
+Relevant? [Y/n] y
+
+ Result 6
+[
+ URL: www.bloomberg.com/research/stocks/people/person.asp?personId=...
+ Title: William Henry Gates III: Executive Profile & Biography ...
+ Summary: Background* Mr. William Henry Gates, III, also known as Bill, co-founded Microsoft Corporation in 1975 and has been its Technology Advisor since February 4, 2014.
+]
+
+Relevant? [Y/n] y
+
+ Result 7
+[
+ URL: https://www.linkedin.com/in/williamhgates
+ Title: Bill Gates | LinkedIn
+ Summary: View Bill Gates's professional profile on LinkedIn. LinkedIn is the world's largest business network, helping professionals like Bill Gates discover inside ...
+]
+
+Relevant? [Y/n] n
+
+ Result 8
+[
+ URL: https://twitter.com/billgates
+ Title: Bill Gates (BillGates) on Twitter - Welcome to Twitter ...
+ Summary: Bill Gates @ BillGates · Feb 5 “What about Ebola?” and other questions from our Annual Letter tour: http:// b-gat.es/18SN3Rr pic.twitter.com/1znciSna2J.
+]
+
+Relevant? [Y/n] n
+
+ Result 9
+[
+ URL: sco.wikipedia.org/wiki/Bill_Gates
+ Title: Bill Gates - Wikipedia
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate , investor, programmer, inventor an philanthropist. Gates is the umwhile chief ...
+]
+
+Relevant? [Y/n] y
+
+ Result 10
+[
+ URL: collegebasketballtalk.nbcsports.com/2013/05/09/william-gates-jr...
+ Title: William Gates Jr., out of his dad’s shadow but still ...
+ Summary: Growing up in Chicago as the son of “Hoop Dreams” star and a prep basketball legend in the city, one would think that William Gates Jr. would have been ...
+]
+
+Relevant? [Y/n] n
+
+FEEDBACK SUMMARY:
+===================
+Query       =  bill william gates
+Precision   =  0.5
+Still below the desired precision of 0.9
+Indexing Results .... 
+Augmenting query ...
+
+Parameters:
+===================
+Client Key          =  H2EarNgdMNX/DKlxOnRdLWByH/XzZJKpBsULFSbnkIs
+Query               =  bill william gates iii october
+Desired Precision   =  0.9
+Weighting Method    =  wf-idf
+URL                 =  https://api.datamarket.azure.com/Bing/Search/Web?Query=%27bill%20william%20gates%20iii%20october%27&$top=10&$format=json
+Total no of results : 10
+
+Bing Search Results
+===================
+AllWords: prior  []
+
+ Result 1
+[
+ URL: en.wikipedia.org/wiki/Bill_Gates
+ Title: Bill Gates - Wikipedia, the free encyclopedia
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, philanthropist, investor, computer programmer, and inventor. Gates ...
+]
+
+Relevant? [Y/n] y
+
+ Result 2
+[
+ URL: www.biography.com/people/bill-gates-9307520
+ Title: Bill Gates - Biography - - Biography.com
+ Summary: Biography.com tracks the life and career of Bill Gates, ... Bill Gates was born William Henry Gates III on October ... his involvement with the Bill and Melinda Gates ...
+]
+
+Relevant? [Y/n] y
+
+ Result 3
+[
+ URL: www.britannica.com/EBchecked/topic/226865
+ Title: Bill Gates | biography - American computer programmer ...
+ Summary: Bill Gates, in full William Henry Gates III (born October 28, 1955, Seattle, Washington, U.S.), American computer programmer and entrepreneur who cofounded Microsoft ...
+]
+
+Relevant? [Y/n] y
+
+ Result 4
+[
+ URL: worldhistoryproject.org/1955/10/28/bill-gates-is-born
+ Title: Bill Gates is born | World History Project
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, philanthropist, and chairman of Microsoft, the software company he founded ...
+]
+
+Relevant? [Y/n] y
+
+ Result 5
+[
+ URL: www.geni.com/people/Bill-Gates/6000000002467188250
+ Title: William Henry Gates, III - Genealogy - Family Tree ...
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, philanthropist, and chairman of Microsoft, the software company he founded ...
+]
+
+Relevant? [Y/n] y
+
+ Result 6
+[
+ URL: https://www.facebook.com/BillGates2015
+ Title: Bill Gates 2015 | Facebook
+ Summary: Bill Gates 2015, Tallahassee, Florida. 1,104 likes · 1,099 talking about this. William Henry "Bill" Gates III (born October 28, 1955) is an American...
+]
+
+Relevant? [Y/n] y
+
+ Result 7
+[
+ URL: www.wayne.k12.ms.us/userfiles/191/Classes/1372/billgatesbiography1.pdf
+ Title: Bill Gates Biography - Wayne County Schools
+ Summary: Bill Gates Biography in full William ... Born William Henry Gates, III, on October ... combined several family foundations to form the Bill and Melinda Gates ...
+]
+
+Relevant? [Y/n] y
+
+ Result 8
+[
+ URL: billgates44.blogspot.com/...william-henry-gates-iii-october-28.html
+ Title: Bill Gates - blogspot.com
+ Summary: Born William Henry Gates III October 28, 1955 Seattle, Washington, U.S. Nationality American Occupation Co-founder and Chairman of Microsoft Co-Chair of ...
+]
+
+Relevant? [Y/n] y
+
+ Result 9
+[
+ URL: mashable.com/category/bill-gates
+ Title: Bill Gates - Mashable
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate and philanthropist. Gates is the former chief executive and current ...
+]
+
+Relevant? [Y/n] y
+
+ Result 10
+[
+ URL: www.powershow.com/view/1cfc4-ZDE2O/William_Henry_Gates_III_Bill...
+ Title: William Henry Gates III Bill Gates October 28, 1955 ...
+ Summary: William Henry Gates III. Bill Gates. October 28, 1955. Early days, computers were very hard to ... Bill Gates has donated more than $27 Billion worldwide. ...
+]
+
+Relevant? [Y/n] y
+
+FEEDBACK SUMMARY:
+===================
+Query       =  bill william gates iii october
+Precision   =  1.0
+Desired Precision reached in 3 iterations!
+
+karl@karl-T430ub:~/Documents/RelevanceFeedback$ 
+

@@ -1,0 +1,335 @@
+Parameters:
+===================
+Client Key          =  H2EarNgdMNX/DKlxOnRdLWByH/XzZJKpBsULFSbnkIs
+Query               =  columbia
+Desired Precision   =  0.9
+Weighting Method    =  tf-idf
+URL                 =  https://api.datamarket.azure.com/Bing/Search/Web?Query=%27columbia%27&$top=10&$format=json
+Total no of results : 10
+
+Bing Search Results
+===================
+AllWords: prior  []
+
+ Result 1
+[
+ URL: www.columbia.com
+ Title: Shop Direct for Jackets, Pants, Shirts & Shoes | Columbia ...
+ Summary: Shop direct from Columbia Sportswear. Buy Columbia jackets, pants, shirts, fleece, shoes, boots & sweaters. Visit our blog, watch videos & meet our athletes.
+]
+
+Relevant? [Y/n] n
+
+ Result 2
+[
+ URL: en.wikipedia.org/wiki/Columbia
+ Title: Columbia - Wikipedia, the free encyclopedia
+ Summary: Columbia may refer to: Contents 1 Places 1.1 In North America 1.2 Elsewhere 1.3 In fiction 2 Companies 2.1 Music and entertainment 2.2 Other 3 Music 4 People 5 ...
+]
+
+Relevant? [Y/n] n
+
+ Result 3
+[
+ URL: www.columbia.edu
+ Title: Columbia University in the City of New York
+ Summary: Founded in 1754 as King's College by royal charter, it is the oldest institution of higher learning in the State of New York. Located in New York City and a member of ...
+]
+
+Relevant? [Y/n] y
+
+ Result 4
+[
+ URL: en.wikipedia.org/wiki/Colombia
+ Title: Colombia - Wikipedia, the free encyclopedia
+ Summary: Colombia, officially the Republic of Colombia, is a country situated in the northwest of South America, bordered to the northwest by Panama ; to the east by Venezuela ...
+]
+
+Relevant? [Y/n] n
+
+ Result 5
+[
+ URL: columbiasc.net
+ Title: :: Welcome to the City of Columbia ::
+ Summary: The Columbia City Hall, also known as Old United States Court House and Post Office, was built in 1870.It was listed on the National Register of Historic Places in 1973.
+]
+
+Relevant? [Y/n] n
+
+ Result 6
+[
+ URL: www.gocolumbiamo.com
+ Title: City of Columbia, Missouri's Official Government Web Site
+ Summary: The City of Columbia Missouri's official web site. Perform business transactions, view services, department information, upcoming meetings and events.
+]
+
+Relevant? [Y/n] n
+
+ Result 7
+[
+ URL: www.gocolumbialions.com
+ Title: GoColumbiaLions.com—Official Web Site of Columbia ...
+ Summary: The Official Online Home of the Columbia Lions, Columbia Athletics, Columbia University, Columbia Lions Official Merchandise, Columbia Lions broadcasting
+]
+
+Relevant? [Y/n] y
+
+ Result 8
+[
+ URL: www.college.columbia.edu
+ Title: Columbia College | Columbia College
+ Summary: Columbia College is pleased to share the Columbia College Annual Report 2013–2014, which celebrates our students’ and faculty members’ achievements, thanks our ...
+]
+
+Relevant? [Y/n] y
+
+ Result 9
+[
+ URL: www.parks.ca.gov/?page_id=552
+ Title: Columbia SHP - California State Parks
+ Summary: Location - Directions. Columbia State Historic Park is three miles north of Sonora, off Highway 49. The parks address is 11255 Jackson Street Columbia CA, 95310.
+]
+
+Relevant? [Y/n] n
+
+ Result 10
+[
+ URL: www.colum.edu
+ Title: Columbia College Chicago
+ Summary: When you attend Columbia College Chicago, your home is one of the most active, vibrant, forward-thinking cities in the world.
+]
+
+Relevant? [Y/n] n
+
+FEEDBACK SUMMARY:
+===================
+Query       =  columbia
+Precision   =  0.3
+Still below the desired precision of 0.9
+Indexing Results .... 
+Augmenting query ...
+
+Parameters:
+===================
+Client Key          =  H2EarNgdMNX/DKlxOnRdLWByH/XzZJKpBsULFSbnkIs
+Query               =  new college columbia
+Desired Precision   =  0.9
+Weighting Method    =  tf-idf
+URL                 =  https://api.datamarket.azure.com/Bing/Search/Web?Query=%27new%20college%20columbia%27&$top=10&$format=json
+Total no of results : 10
+
+Bing Search Results
+===================
+AllWords: prior  []
+
+ Result 1
+[
+ URL: en.wikipedia.org/wiki/New_College,_Teachers_College,_Columbia...
+ Title: New College, Teachers College, Columbia University ...
+ Summary: New College for the Education of Teachers (or simply New College) was a progressive undergraduate college under the auspices of Teachers College, Columbia University ...
+]
+
+Relevant? [Y/n] n
+
+ Result 2
+[
+ URL: www.columbia.edu
+ Title: Columbia University in the City of New York
+ Summary: Founded in 1754 as King's College by royal charter, it is the oldest institution of higher learning in the State of New York. Located in New York City and a member of ...
+]
+
+Relevant? [Y/n] y
+
+ Result 3
+[
+ URL: www.college.columbia.edu
+ Title: Columbia College | Columbia College
+ Summary: Columbia College is pleased to share the Columbia College Annual Report 2013–2014, ... Columbia University in the City of New York 208 Hamilton Hall, Mail Code 2805
+]
+
+Relevant? [Y/n] y
+
+ Result 4
+[
+ URL: www.ccis.edu
+ Title: Columbia College: On Campus & Online - Associate, Bachelor ...
+ Summary: Columbia College Columbia College, providing adult education, distance learning, online degrees and education at more than 30 campuses across the country.
+]
+
+Relevant? [Y/n] n
+
+ Result 5
+[
+ URL: www.nydailynews.com/sports/college/columbia-hires-al-bagnoli-new...
+ Title: Columbia hires Al Bagnoli as new football coach - NY Daily ...
+ Summary: Columbia began what should be the acid test of whether it can produce a sustainable winner in football with the Monday announcement that it has hired Al Bagnoli to be ...
+]
+
+Relevant? [Y/n] y
+
+ Result 6
+[
+ URL: www.colum.edu
+ Title: Columbia College Chicago
+ Summary: When you attend Columbia College Chicago, your home is one of the most active, vibrant, forward-thinking cities in the world.
+]
+
+Relevant? [Y/n] n
+
+ Result 7
+[
+ URL: en.wikipedia.org/wiki/Columbia_university
+ Title: Columbia University - Wikipedia, the free encyclopedia
+ Summary: Columbia University in the City of New York, or simply Columbia University, is an American private Ivy League research university located in the Morningside Heights ...
+]
+
+Relevant? [Y/n] y
+
+ Result 8
+[
+ URL: www.columbia.edu/node/4.html
+ Title: Admissions | Columbia University in the City of New York
+ Summary: Columbia University in the City of New York. ... The College Dean's office and the Undergraduate Admissions Office for Columbia College and the Fu Foundation School ...
+]
+
+Relevant? [Y/n] y
+
+ Result 9
+[
+ URL: www.columbiasc.edu
+ Title: Columbia College South Carolina
+ Summary: A private liberal arts college for women founded in 1854, with a co-educational graduate school and evening college.
+]
+
+Relevant? [Y/n] n
+
+ Result 10
+[
+ URL: www.columbiacollege.ca/about/new-campus
+ Title: Columbia College | New Campus
+ Summary: Columbia College opened the doors to its new campus at 438 Terminal Avenue, Vancouver, British Columbia.
+]
+
+Relevant? [Y/n] n
+
+FEEDBACK SUMMARY:
+===================
+Query       =  new college columbia
+Precision   =  0.5
+Still below the desired precision of 0.9
+Indexing Results .... 
+Augmenting query ...
+
+Parameters:
+===================
+Client Key          =  H2EarNgdMNX/DKlxOnRdLWByH/XzZJKpBsULFSbnkIs
+Query               =  new college columbia university york
+Desired Precision   =  0.9
+Weighting Method    =  tf-idf
+URL                 =  https://api.datamarket.azure.com/Bing/Search/Web?Query=%27new%20college%20columbia%20university%20york%27&$top=10&$format=json
+Total no of results : 10
+
+Bing Search Results
+===================
+AllWords: prior  []
+
+ Result 1
+[
+ URL: www.columbia.edu
+ Title: Columbia University in the City of New York
+ Summary: Founded in 1754 as King's College by royal charter, it is the oldest institution of higher learning in the State of New York. Located in New York City and a member of ...
+]
+
+Relevant? [Y/n] y
+
+ Result 2
+[
+ URL: www.college.columbia.edu
+ Title: Columbia College, Columbia University
+ Summary: Columbia College. Columbia University in the City of New York 208 Hamilton Hall, Mail Code 2805 1130 Amsterdam Avenue New York, NY 10027.
+]
+
+Relevant? [Y/n] y
+
+ Result 3
+[
+ URL: en.wikipedia.org/wiki/Columbia_university
+ Title: Columbia University - Wikipedia, the free encyclopedia
+ Summary: Columbia University in the City of New York, ... the steps of Low Library provides Columbia University and Barnard College students, faculty, ...
+]
+
+Relevant? [Y/n] y
+
+ Result 4
+[
+ URL: www.columbia.edu/node/4.html
+ Title: Admissions | Columbia University in the City of New York
+ Summary: Columbia University in the City of New York. ... Search for a specific department at Columbia University or see a list of all ... a graduate of Columbia College, ...
+]
+
+Relevant? [Y/n] y
+
+ Result 5
+[
+ URL: undergrad.admissions.columbia.edu/collections/studentlife/new-york...
+ Title: New York City | Columbia Undergraduate Admissions
+ Summary: Science at Columbia College; Columbia Engineering. ... Our New York is a neighborhood, ... Columbia University and City Officials Mark Opening of Columbia Startup Lab
+]
+
+Relevant? [Y/n] y
+
+ Result 6
+[
+ URL: www.columbia.edu/content/history.html
+ Title: History | Columbia University in the City of New York
+ Summary: A Brief History of Columbia. Columbia University was founded in 1754 as King's College by royal charter of King George II of England. It is the oldest institution of ...
+]
+
+Relevant? [Y/n] y
+
+ Result 7
+[
+ URL: www.tc.columbia.edu
+ Title: Teachers College, Columbia University
+ Summary: Teachers College, Columbia University, is the oldest and largest graduate school of education in the United States, and also perennially ranked among the nation's best.
+]
+
+Relevant? [Y/n] y
+
+ Result 8
+[
+ URL: colleges.fastweb.com/c-columbia-university-in-the-city-of-new-york
+ Title: Columbia University in the City of New York - Fastweb
+ Summary: Columbia University in the City of New York, commonly referred to as Columbia University, is an American private Ivy League research university in New York City.
+]
+
+Relevant? [Y/n] y
+
+ Result 9
+[
+ URL: en.wikipedia.org/wiki/Columbia_College,_Columbia_University
+ Title: Columbia College, Columbia University - Wikipedia, the ...
+ Summary: History . Columbia College was founded as King’s College by royal charter of King George II of Great Britain in the Province of New York in 1754.
+]
+
+Relevant? [Y/n] y
+
+ Result 10
+[
+ URL: www.columbia.edu/content/employment-columbia.html
+ Title: Employment at Columbia | Columbia University in the City ...
+ Summary: Opportunities at Columbia. Columbia University is committed to attracting, encouraging and retaining a highly qualified workforce to support our mission of excellence ...
+]
+
+Relevant? [Y/n] y
+
+FEEDBACK SUMMARY:
+===================
+Query       =  new college columbia university york
+Precision   =  1.0
+Desired Precision reached in 3 iterations!
+
+
+
+
+
