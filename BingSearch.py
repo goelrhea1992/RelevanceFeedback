@@ -114,16 +114,39 @@ def getAllWords(topResults):
 	#print tf_Idf
 	
 	return tf_Idf	
-	
-	
-'''
-	termFreqs = 
-	for i in range(0, 10):
-		doc = 
-		termFreqs[i] = [document.count(term) for term in 
-	termFreqs = [[doc.count(term) for term in allWords] for doc in list(
-'''
 
+""" gets the term frequencies, given the list of words, and the words in each document
+"""
+def term_freqs(docs, allWords):
+	global termFreqs 
+	termFreqs = [[docs[docKey].count(word) for word in allWords.keys()] for docKey in docs.keys()]
+	return termFreqs
+
+""" gets the tf-idf
+"""
+def tf_idf(docs, allWords):
+	global tf_Idf
+	tf_Idf = [[docs[docKey].count(word)*allWords[word][1]  for word in allWords.keys()] for docKey in docs.keys()]
+	#print tf_Idf
+	return tf_idf
+
+""" Maximum tf Normalization
+"""
+def max_tf_normalize(a,termFreqs):	
+	#tf-idf: number of occurences of every word in every document, normalized by log(N/df)
+	maxNormTermFreqs = [[]]*len(termFreqs)
+	for i in range(len(termFreqs)):
+		maxTF = max(termFreqs[i])
+		maxNormTermFreqs[i] = [a+(1-a)*( tf/float(maxTF) ) for tf in termFreqs[i]]
+	return maxNormTermFreqs
+""" Gets the Maximum normalized tf-idf, or ntf_idf
+"""
+def ntf_idf(a,termFreqs, allWords):
+	maxNormTermFreqs = max_tf_normalize(a,termFreqs)
+	ntf_idf = [[]]*len(termFreqs)
+	for i in range(len(termFreqs)):
+		ntf_idf[i] = [ntf*allWords[word][1] for (ntf,word) in zip(maxNormTermFreqs[i],allWords)]
+	return ntf_idf
 
 
 """ Computes and returns the queryVector
@@ -223,7 +246,7 @@ if __name__ == "__main__":
 		# print stopWords
 
 		topResults = getTopResults(formattedQuery, accountKey)
-		tf_Idf = getAllWords(topResults)
+		getAllWords(topResults)
 
 		# print allWords
 
