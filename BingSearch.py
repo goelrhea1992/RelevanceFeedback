@@ -208,6 +208,9 @@ def Rocchio(relevance, queryVector, Docs, alpha, beta, gamma):
 def getNewQuery(query, allWordsKeys, queryMod):
 	""" 
 	Returns augmented query by finding the 2 maximum terms in the query vector
+	query: string the original query 
+	allWordsKeys: the list of all possible words
+	queryMod: the computed word scores for every word from Rocchio's algorithm
 	"""
 
 	words = query.split(' ')
@@ -222,6 +225,15 @@ def getNewQuery(query, allWordsKeys, queryMod):
 		elif tup[0] > maxVal2[0]  and tup[1] not in words:
 			maxVal2 = tup
 	return query + ' ' + maxVal1[1] + ' ' + maxVal2[1]
+
+def orderQuery(newQuery, allWordsKeys, queryMod)
+	"""
+	"""
+	queryWords = newQuery.split(' ')
+	temp = ''
+	
+	
+	return orderedQuery
 	
 def printParameters(accountKey, query, precision):
 	""" 
