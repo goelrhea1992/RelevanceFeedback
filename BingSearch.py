@@ -130,7 +130,7 @@ def tf_idf(docs, allWords):
 	"""
 	global tf_Idf
 	tf_Idf = [[abs(docs[docKey].count(word)*allWords[word][1])  for word in allWords.keys()] for docKey in docs.keys()]
-	print tf_Idf
+	#print tf_Idf
 	return tf_Idf
 
 def max_tf_normalize(a,termFreqs):
@@ -199,7 +199,7 @@ def Rocchio(relevance, queryVector, Docs, alpha, beta, gamma):
 
 	term1 = [alpha*i for i in queryVector]
 	term2 = [float(beta)/len(relDocs) * i for i in sumRelDocs]
-	term3 = [float(gamma)/len(nonRelDocs) * i for i in sumNonRelDocs]
+	term3 = [-float(gamma)/len(nonRelDocs) * i for i in sumNonRelDocs]
 	
 	modQueryVec = [sum(wordCol) for wordCol in zip(term1,term2,term3)]
 	
@@ -226,7 +226,7 @@ def getNewQuery(query, allWordsKeys, queryMod):
 			maxVal2 = tup
 	return query + ' ' + maxVal1[1] + ' ' + maxVal2[1]
 
-def orderQuery(newQuery, allWordsKeys, queryMod)
+def orderQuery(newQuery, allWordsKeys, queryMod):
 	"""
 	"""
 	queryWords = newQuery.split(' ')
