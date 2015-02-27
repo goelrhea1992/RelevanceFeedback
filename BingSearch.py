@@ -115,20 +115,21 @@ def getAllWords(topResults):
 
 
 def term_freqs(docs, allWords):
-	""" gets the term frequencies, given the list of words, and the words in each document
-	
+	""" Computes and returns the term frequencies, given the list of words, and the words in each document.
+	docs: a representation of a document simply consisting of a list of the words in the title and description
+	allWords: the word vector (expanded list of all words in the query and the documents)
 	"""
 	global termFreqs 
 	termFreqs = [[docs[docKey].count(word) for word in allWords.keys()] for docKey in docs.keys()]
 	return termFreqs
 
 def tf_idf(docs, allWords):
-	""" computes and returns the tf-idf
+	""" Computes and returns the tf-idf = abs(termFreqs*inverseDocFreq) for all words in each document.
 	docs: a representation of a document simply consisting of a list of the words in the title and description
 	allWords: the word vector (expanded list of all words in the query and the documents)
 	"""
 	global tf_Idf
-	tf_Idf = [[docs[docKey].count(word)*allWords[word][1]  for word in allWords.keys()] for docKey in docs.keys()]
+	tf_Idf = [[abs(docs[docKey].count(word)*allWords[word][1])  for word in allWords.keys()] for docKey in docs.keys()]
 	print tf_Idf
 	return tf_Idf
 
@@ -319,12 +320,13 @@ if __name__ == "__main__":
 		print 'Still below the desired precision of ' + str(precision)
 		print 'Indexing Results .... \nAugmenting query ...'
 
-		# get augmented query based on Rocchio's Algorithm
+		#compute optional values
 		_termFreqs = term_freqs(docs, allWords)
 		_tf_idf = tf_idf(docs, allWords)
-		_ntf_idf = ntf_idf(.4,_termFreqs, allWords):
+		_ntf_idf = ntf_idf(.4,_termFreqs, allWords)
 		
-		queryMod = Rocchio(relevance, queryVector, tf_idf(docs, allWords), 1, .75, .15)
+		# get augmented query based on Rocchio's Algorithm
+		queryMod = Rocchio(relevance, queryVector, _tf_idf, 1, .75, .15)
 		query = getNewQuery(query, allWords.keys(), queryMod)
 
 		reset(allWords)
